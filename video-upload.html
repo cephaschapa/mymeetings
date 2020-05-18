@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <!--Import Google Icon Font-->
+    <link
+      href="https://fonts.googleapis.com/icon?family=Material+Icons"
+      rel="stylesheet"
+    />
+    <script
+      defer
+      src="https://use.fontawesome.com/releases/v5.0.6/js/all.js"
+    ></script>
+    <!--Import materialize.css-->
+    <link
+      type="text/css"
+      rel="stylesheet"
+      href="css/materialize.min.css"
+      media="screen,projection"
+    />
+    <link type="text/css" rel="stylesheet" href="css/main.css" />
+    <link type="text/css" rel="stylesheet" href="style/style.css" />
+
+    <!--Let browser know website is optimized for mobile-->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Meetings | Home</title>
+    <style>
+      .result-box {
+        min-height: 500px !important;
+        background: #34495e;
+      }
+      .upload-box {
+        min-height: 500px !important;
+        background: #ecf0f1;
+      }
+    </style>
+  </head>
+
+  <body>
+    <!-- Header -->
+    <header class="">
+      <nav class="blue darken-2">
+        <div class="container">
+          <div class="nav-wrapper">
+            <a href="#" class="brand-logo">Meetings</a>
+            <a href="#" data-activates="mobile-nav" class="button-collapse">
+              <i class="fa fa-bars"></i>
+            </a>
+            <ul class="right hide-on-med-and-down">
+              <li><a href="sass.html">Home</a></li>
+              <li><a href="badges.html">Pricing</a></li>
+              <li><a href="dashoard.html">Dashboard</a></li>
+              <li><a href="video-chat.html">Video Chat</a></li>
+              <li><a href="sign-in.html">Sign In</a></li>
+              <li><a href="sign-up.html">Sign Up</a></li>
+            </ul>
+            <ul class="side-nav" id="mobile-nav">
+              <li><a href="sass.html">Home</a></li>
+              <li><a href="badges.html">Pricing</a></li>
+              <li><a href="dashoard.html">Dashboard</a></li>
+              <li><a href="video-chat.html">Video Chat</a></li>
+              <li><a href="sign-in.html">Sign In</a></li>
+              <li><a href="sign-up.html">Sign Up</a></li>
+            </ul>
+          </div>
+        </div>
+      </nav>
+      <!-- Showcase -->
+    </header>
+
+    <!-- upload-section -->
+    <section class="section section-upload">
+      <div class="container">
+        <div class="row">
+          <div class="col s12 m6 upload-box">
+            <div class="row">
+
+            </div>
+            <div class="row">
+              <p>CHECK PROGRESS</p>
+            </div>
+          </div>
+          <div class="col s12 m6 result-box"></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="page-footer blue darken-1">
+      <div class="container">
+        <div class="row">
+          <div class="col l6 s12">
+            <h5 class="white-text">About Us</h5>
+            <p class="grey-text text-lighten-4">
+              Lorem ipsum dolor sit amet consectetur adipisicing elit. Corrupti
+              ducimus, hic id quod enim voluptate
+            </p>
+          </div>
+          <div class="col l4 offset-l2 s12">
+            <h5 class="white-text">Links</h5>
+            <ul>
+              <li>
+                <a class="grey-text text-lighten-3" href="index.html">Home 1</a>
+              </li>
+              <li>
+                <a class="grey-text text-lighten-3" href="solutions.html"
+                  >Solutions</a
+                >
+              </li>
+              <li>
+                <a class="grey-text text-lighten-3" href="signup.html"
+                  >Signup</a
+                >
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+      <div class="footer-copyright blue darken-3">
+        <div class="container">
+          Quazzu &copy; 2018
+          <a class="grey-text text-lighten-4 right" href="#!"
+            >Terms & Conditions</a
+          >
+        </div>
+      </div>
+    </footer>
+
+    <!-- Login Modal -->
+    <div id="login-modal" class="modal">
+      <div class="modal-content">
+        <h4>Account Login</h4>
+        <p>Login to access your account dashboard</p>
+        <form>
+          <div class="input-field">
+            <input type="email" id="email" />
+            <label for="email">Email</label>
+          </div>
+          <div class="input-field">
+            <input type="password" id="password" />
+            <label for="password">Password</label>
+          </div>
+        </form>
+      </div>
+      <div class="modal-footer">
+        <a href="#!" class="modal-action modal-close btn grey">
+          <i class="fa fa-sync"></i> Reset Password</a
+        >
+        <a href="#!" class="modal-action modal-close btn purple">
+          <i class="fa fa-lock"></i> Login</a
+        >
+      </div>
+    </div>
+
+    <!--Import jQuery before materialize.js-->
+    <script
+      type="text/javascript"
+      src="https://code.jquery.com/jquery-3.2.1.min.js"
+    ></script>
+    <script type="text/javascript" src="js/materialize.min.js"></script>
+    <script>
+      $(document).ready(function () {
+        $(".carousel.carousel-slider").carousel({ fullWidth: true });
+        $(".button-collapse").sideNav();
+        $(".modal").modal();
+      });
+    </script>
+    <script type="text/javascript">
+      $(function() {
+          var video_url = '' 
+          var params = {
+              // Request parameters
+              "privacy": "Private",
+              
+              "language": "{string}",
+              "videoUrl": video_url,
+              
+              "accessToken": "{string}",
+          };
+        
+          $.ajax({
+              url: "https://api.videoindexer.ai/{location}/Accounts/{accountId}/Videos?name={name}&" + $.param(params),
+              beforeSend: function(xhrObj){
+                  // Request headers
+                  xhrObj.setRequestHeader("x-ms-client-request-id","");
+                  xhrObj.setRequestHeader("Content-Type","multipart/form-data");
+                  xhrObj.setRequestHeader("Ocp-Apim-Subscription-Key","{subscription key}");
+              },
+              type: "POST",
+              // Request body
+              data: "{body}",
+          })
+          .done(function(data) {
+              alert("success");
+          })
+          .fail(function() {
+              alert("error");
+          });
+      });
+  </body>
+</html>
